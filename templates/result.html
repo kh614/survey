@@ -1,0 +1,9 @@
+<h1>{{quesiton.question_text}}</h1>
+
+<ul>
+    {% for choice in question.choice_set.all %}
+    <li>{{choice.choice_text}} - {{choice.votes}} vote{{choice.vote|pluralize}}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'detail' question.id%}">다시 투표하기</a>
